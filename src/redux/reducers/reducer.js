@@ -1,5 +1,5 @@
 import { ADD_TASK, CLREAR_TASKS, REMOVE_TASK } from "./../types/types";
-import data from "../../json/data.json";
+// import data from "../../json/data.json";
 
 /**
  *
@@ -15,7 +15,7 @@ import data from "../../json/data.json";
 
 const reducer = (tasks = [], action) => {
   // add data from json file to localStorage
-  localStorage.setItem("tasks", JSON.stringify(data));
+  // localStorage.setItem("tasks", JSON.stringify(data));
 
   // get data from localStorage and add it to tasks
   tasks = JSON.parse(localStorage.getItem("tasks")) || tasks;
