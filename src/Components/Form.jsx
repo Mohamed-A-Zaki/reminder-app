@@ -30,7 +30,7 @@ const Form = ({ add_task, clear_tasks }) => {
         showTimeSelect
         onChange={(value) => setTime(value)}
         dateFormat="Pp"
-        withPortal
+        // withPortal
       />
 
       <div className="buttons my-3">
