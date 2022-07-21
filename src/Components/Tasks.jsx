@@ -1,6 +1,10 @@
 import React from "react";
+
 import { connect } from "react-redux";
 import { remove_task } from "./../redux/actions/actions";
+
+// import moment library
+import moment from "moment";
 
 const Tasks = ({ tasks, remove_task }) => {
   return (
@@ -13,13 +17,13 @@ const Tasks = ({ tasks, remove_task }) => {
           >
             <div className="content text-start">
               <div className="title">{title}</div>
-              <div className="time">{time}</div>
+              <div className="time">{moment(time).fromNow()}</div>
             </div>
 
             <div className="remove">
               <button
                 className="btn btn-danger"
-                onClick={() => remove_task( id )}
+                onClick={() => remove_task(id)}
               >
                 Remove
               </button>

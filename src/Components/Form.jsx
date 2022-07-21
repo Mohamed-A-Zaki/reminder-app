@@ -1,11 +1,16 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+
 import { add_task, clear_tasks } from "./../redux/actions/actions";
 import { connect } from "react-redux";
 
+// import datepicker
+import DatePicker from "react-datepicker";
+
+// https://reactdatepicker.com/
+
 const Form = ({ add_task, clear_tasks }) => {
   const [title, setTitle] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(new Date());
 
   return (
     <form>
@@ -19,11 +24,13 @@ const Form = ({ add_task, clear_tasks }) => {
       />
 
       {/* time input */}
-      <input
-        type="datetime-local"
-        value={time}
-        onChange={(e) => setTime(e.target.value)}
+      <DatePicker
         className="form-control"
+        selected={time}
+        showTimeSelect
+        onChange={(value) => setTime(value)}
+        dateFormat="Pp"
+        withPortal
       />
 
       <div className="buttons my-3">
@@ -33,7 +40,7 @@ const Form = ({ add_task, clear_tasks }) => {
           onClick={(e) => {
             e.preventDefault();
             add_task(title, time);
-            setTime("");
+            setTime(new Date());
             setTitle("");
           }}
         >
